@@ -22,7 +22,7 @@ public class InTransitDTO {
     private static AtomicInteger inTransitCounter = new AtomicInteger(100);
     private static final Logger logger = Logger.getLogger(InTransitDTO.class);
     private TimeZone tz = TimeZone.getTimeZone("UTC");
-    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'"); // Quoted "Z" to indicate UTC, no timezone offset
+    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS"); // Quoted "Z" to indicate UTC, no timezone offset
     private Random rn = new Random();
     private int low = 120;
     private int high = 3600;
@@ -49,7 +49,7 @@ public class InTransitDTO {
             int tripDuration = rn.nextInt(high-low) + low;
             jo.put("stationId", stationId);
             jo.put("action", "DOCKED");
-            jo.put("time", df.format(new Date()));
+            jo.put("actionTime", df.format(new Date()));
             jo.put("tripDuration", tripDuration );
             jo.put( "price",  Double.parseDouble(decFormat.format(tripDuration/60.0)));
         } catch (JSONException e) {
@@ -66,7 +66,9 @@ public class InTransitDTO {
             int tripDuration = rn.nextInt(high-low) + low;
             jo.put("stationId", stationId);
             jo.put("action", "RENTED");
-            jo.put("time", df.format(new Date()));
+            jo.put("actionTime", df.format(new Date()));
+            jo.put("tripDuration", 0 );
+            jo.put( "price",  0.00);
 
         } catch (JSONException e) {
             e.printStackTrace();
