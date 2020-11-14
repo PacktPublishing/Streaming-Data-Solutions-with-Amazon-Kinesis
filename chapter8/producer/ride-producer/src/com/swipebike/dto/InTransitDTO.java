@@ -81,6 +81,7 @@ public class InTransitDTO {
     private void sendToKinesis(JSONObject jo){
         ByteBuffer data = null;
         data = ByteBuffer.wrap(jo.toString().getBytes());
+        data = ByteBuffer.wrap("{\"actionTime\":\"2020-11-14 18:04:13.386\",\"price\":30.77,\"action\":\"DOCKED\",\"tripDuration\":1846,\"stationId\":480}".getBytes());
         kpl.addUserRecord(kinesisStream, "bike", data);
     }
 }
