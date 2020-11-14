@@ -80,11 +80,7 @@ public class InTransitDTO {
 
     private void sendToKinesis(JSONObject jo){
         ByteBuffer data = null;
-        try {
-            data = ByteBuffer.wrap(jo.toString().getBytes("UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        data = ByteBuffer.wrap(jo.toString().getBytes());
         kpl.addUserRecord(kinesisStream, "bike", data);
     }
 }
