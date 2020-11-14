@@ -22,7 +22,7 @@ public class InTransitDTO {
     private static AtomicInteger inTransitCounter = new AtomicInteger(100);
     private static final Logger logger = Logger.getLogger(InTransitDTO.class);
     private TimeZone tz = TimeZone.getTimeZone("UTC");
-    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS"); // Quoted "Z" to indicate UTC, no timezone offset
+    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); // Quoted "Z" to indicate UTC, no timezone offset
     private Random rn = new Random();
     private int low = 120;
     private int high = 3600;
