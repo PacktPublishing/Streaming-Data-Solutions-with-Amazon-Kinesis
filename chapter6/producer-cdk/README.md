@@ -6,7 +6,19 @@ CDK app  (`producer_cdk_stack`) deploys infrastructure needed to run Producer Ap
 This project is set up like a standard Python project.  The initialization process also creates
 a virtualenv within this project, stored under the .venv directory.  
 
-Use the following step to activate your virtualenv.
+Make sure CDK is intalled 
+
+```
+$npm install -g aws-cdk
+```
+
+Create Pyhton Virtual environment
+
+```
+$pyhton3 -m venv .venv
+```
+
+Activate your virtualenv.
 
 ```
 $ source .venv/bin/activate
