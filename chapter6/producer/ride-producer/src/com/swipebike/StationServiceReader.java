@@ -26,9 +26,12 @@ public class StationServiceReader {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] columns = line.split(",");
-                if(columns[0].trim().contains("station-id")) continue;
+                if(columns[0].trim().contains("stationId")) continue;
+                int iStationId = Integer.parseInt(columns[0].trim());
+                int iCapacity = Integer.parseInt(columns[1].trim());
+                int iInitCount = Integer.parseInt(columns[2].trim());
 
-                Station aStation = new Station(Integer.parseInt(columns[0]), Integer.parseInt(columns[1]), Integer.parseInt(columns[2]), Behavior.valueOf(columns[3]));
+                Station aStation = new Station(iStationId, iCapacity, iInitCount, Behavior.valueOf(columns[3]));
                 aStation.setTransitPool(transitPool);
                 stationList.add(aStation);
                 logger.info(aStation);

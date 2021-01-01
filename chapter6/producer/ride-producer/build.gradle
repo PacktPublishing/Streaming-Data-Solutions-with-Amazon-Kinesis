@@ -29,6 +29,6 @@ dependencies {
     compile 'junit:junit:4.12'
     compile 'log4j:log4j:1.2.16'
     compile group: 'org.json', name: 'json', version: '20090211'
-    compile group: 'com.amazonaws', name: 'amazon-kinesis-producer', version: '0.14.0'
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
+    compile group: 'software.amazon.kinesis', name: 'amazon-kinesis-client', version: '2.3.1'
 }
