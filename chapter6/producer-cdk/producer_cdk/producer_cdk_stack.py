@@ -81,7 +81,7 @@ class ProducerCdkStack(core.Stack):
         
         # Instance
         instance = ec2.Instance(self, "Instance",
-            instance_type=ec2.InstanceType("t3.nano"),
+            instance_type=ec2.InstanceType("t3.small"),
             machine_image=amzn_linux,
             vpc = vpc,
             role = ec2role,
