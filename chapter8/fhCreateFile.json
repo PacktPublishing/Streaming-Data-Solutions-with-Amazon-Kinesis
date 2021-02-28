@@ -4,7 +4,7 @@
     "S3DestinationConfiguration": {
 	  "RoleARN": "arn:aws:iam::[AWS-ACCOUNT-NUMBER]:role/FHSwipeBikeDLRole",
 	  "BucketARN": "arn:aws:s3:::[YOURNAME]-dl-bucket",
-	  "Prefix": "rawdata/",
+	  "Prefix": "rawdata/rides/",
 	  "BufferingHints": {
 	    "SizeInMBs": 1,
 	    "IntervalInSeconds": 60
