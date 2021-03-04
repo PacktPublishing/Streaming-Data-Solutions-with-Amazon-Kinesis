@@ -64,7 +64,3 @@ $ cdk deploy --parameters kdasrcbucketname=kda-upload-tmak\
 Enjoy!
 =======
 # kinesis-book
-
-Main Document:
-https://docs.google.com/document/d/1gMlNAaQVyMTTiwFWcqNJ16KFweI3QAkOoo4PQO22gBY/edit#
->>>>>>> f9081d00953e48ae5f3637ae79d96e1e75e2447c
