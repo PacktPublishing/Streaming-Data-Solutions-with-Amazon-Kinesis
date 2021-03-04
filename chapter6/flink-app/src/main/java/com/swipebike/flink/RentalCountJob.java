@@ -1,6 +1,7 @@
 package com.swipebike.flink;
 
 import com.amazonaws.services.kinesisanalytics.flink.connectors.producer.FlinkKinesisFirehoseProducer;
+import com.amazonaws.services.kinesisanalytics.runtime.KinesisAnalyticsRuntime;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.common.typeinfo.Types;
@@ -14,16 +15,19 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.connectors.kinesis.FlinkKinesisConsumer;
 import org.apache.flink.streaming.connectors.kinesis.config.ConsumerConfigConstants;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.Properties;
+import static java.util.Optional.ofNullable;
 
 
 
 public class RentalCountJob {
     private static final ObjectMapper jsonParser = new ObjectMapper();
     private static final String region = "us-east-1";
-    private static final String inputStreamName = "BikeRideGenerator";
+    private static final String inputStreamName = "ProducerStream";
     private static final String outputDeliveryStreamName = "station_data_kdf";
     public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyyMMddHHmm");
 
@@ -31,13 +35,27 @@ public class RentalCountJob {
     private static DataStream<String> createSourceFromStaticConfig(
             StreamExecutionEnvironment env) {
 
-        Properties consumerProperties = new Properties();
+        /*Properties consumerProperties = new Properties();
         consumerProperties.putIfAbsent(ConsumerConfigConstants.STREAM_INITIAL_POSITION, "LATEST");
         consumerProperties.putIfAbsent(ConsumerConfigConstants.AWS_REGION, region);
+*/
+        Map<String, Properties> applicationProperties = null;
+        try {
+            applicationProperties = KinesisAnalyticsRuntime.getApplicationProperties();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Properties consumerConfigProperties = ofNullable(applicationProperties.get("ConsumerConfigProperties")).orElseGet(Properties::new);
+
+        consumerConfigProperties.putIfAbsent(ConsumerConfigConstants.STREAM_INITIAL_POSITION, "LATEST");
+        consumerConfigProperties.putIfAbsent(ConsumerConfigConstants.AWS_REGION, region);
+        consumerConfigProperties.putIfAbsent("INPUT_STREAM", inputStreamName);
+
 
         return env.addSource(new FlinkKinesisConsumer<>(
-                    consumerProperties.getProperty("INPUT_STREAM", "BikeRideGenerator"),
-                    new SimpleStringSchema(), consumerProperties));
+                consumerConfigProperties.getProperty("INPUT_STREAM", inputStreamName),
+                    new SimpleStringSchema(), consumerConfigProperties));
     }
 
 
@@ -47,12 +65,24 @@ public class RentalCountJob {
          * lists of all of the properties that firehose sink can be configured with.
          */
 
-        Properties outputProperties = new Properties();
+        /*Properties outputProperties = new Properties();
         outputProperties.putIfAbsent("OUTPUT_KDF", outputDeliveryStreamName);
         outputProperties.putIfAbsent(ConsumerConfigConstants.AWS_REGION, region);
+*/
+        Map<String, Properties> applicationProperties = null;
+        try {
+            applicationProperties = KinesisAnalyticsRuntime.getApplicationProperties();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Properties outputConfigProperties = ofNullable(applicationProperties.get("OutputConfigProperties")).orElseGet(Properties::new);
+
+        outputConfigProperties.putIfAbsent(ConsumerConfigConstants.AWS_REGION, region);
+        outputConfigProperties.putIfAbsent("OUTPUT_KDF", outputDeliveryStreamName);
 
 
-        FlinkKinesisFirehoseProducer<String> sink = new FlinkKinesisFirehoseProducer<>(outputDeliveryStreamName, new SimpleStringSchema(), outputProperties);
+        FlinkKinesisFirehoseProducer<String> sink = new FlinkKinesisFirehoseProducer<>(outputDeliveryStreamName, new SimpleStringSchema(), outputConfigProperties);
         return sink;
     }
 
