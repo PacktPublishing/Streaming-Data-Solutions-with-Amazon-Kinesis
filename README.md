@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 
-# Welcome to Producer CDK Python project!
+
+# Welcome to Streaming-Data-Solutions-with-Amazon-Kinesis!
 
 CDK app  (`producer_cdk_stack`) deploys infrastructure needed to run Producer App code on EC2 instance.
 
