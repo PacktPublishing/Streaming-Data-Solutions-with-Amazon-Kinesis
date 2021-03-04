@@ -1,25 +1,24 @@
 
-# Welcome to your CDK Python project!
+# Welcome to Producer CDK Python project!
 
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`producer_cdk_stack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+CDK app  (`producer_cdk_stack`) deploys infrastructure needed to run Producer App code on EC2 instance.
 
 This project is set up like a standard Python project.  The initialization process also creates
-a virtualenv within this project, stored under the .venv directory.  To create the virtualenv
-it assumes that there is a `python3` executable in your path with access to the `venv` package.
-If for any reason the automatic creation of the virtualenv fails, you can create the virtualenv
-manually once the init process completes.
+a virtualenv within this project, stored under the .venv directory.  
 
-To manually create a virtualenv on MacOS and Linux:
+Make sure CDK is intalled 
 
 ```
-$ python3 -m venv .venv
+$npm install -g aws-cdk
 ```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+Create Pyhton Virtual environment
+
+```
+$pyhton3 -m venv .venv
+```
+
+Activate your virtualenv.
 
 ```
 $ source .venv/bin/activate
@@ -43,16 +42,15 @@ At this point you can now synthesize the CloudFormation template for this code.
 $ cdk synth
 ```
 
-You can now begin exploring the source code, contained in the hello directory.
-There is also a very trivial test included that can be run like this:
+You can deploy Producer Infrastructure using command like one below (change parameter values for S3 buckets they are globaly unique):
 
 ```
-$ pytest
-```
+$ cdk deploy --parameters kdasrcbucketname=kda-upload-tmak\
+ --parameters kdaoutputbucketname=kda-output-tmak\
+ --parameters sourceStreamName=ProducerStream\
+ --parmeters deliveryStreamName=AnalyticsOutput
 
-To add additional dependencies, for example other CDK libraries, just add to
-your requirements.txt file and rerun the `pip install -r requirements.txt`
-command.
+```
 
 ## Useful commands
 
