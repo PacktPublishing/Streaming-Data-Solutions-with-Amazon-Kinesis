@@ -10,7 +10,6 @@
                 "attribName": "color",
                 "attribValue" : "{{commerce.color}}"
            },
-            ,
            {
                 "attribName": "manufacturer",
                 "attribValue" : "{{random.arrayElement(["SCHIWN","JAMIS","TREK","MOUNTIN"])}}"
