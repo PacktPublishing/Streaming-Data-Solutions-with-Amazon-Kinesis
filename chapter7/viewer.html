@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/amazon-kinesis-video-streams-webrtc/dist/kvs-webrtc.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.585.0.min.js"></script>
+    <style>
+      #videoplayer {
+          background: black;
+          display: inline-block;
+          line-height: 0;
+          max-width: 100%;
+          width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="videoplayer" autoplay playsinline controls>
+    <script>
+
+      let config = {
+        role: KVSWebRTC.Role.VIEWER,
+        channelName: "XXXXXXXXXX",
+        channelARN: 'NOT SET YET', 
+        channelEndpoint:'NOT SET YET',
+        region: 'us-east-1',
+        clientId: 'HCCTTKPGE81', //made up ID 
+        credentials: {
+          accessKeyId:'XXXXXXXXXXXXXXXXXXX',                            
+          secretAccessKey:'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+        }
+      }
+
+      const kvs = new AWS.KinesisVideo({
+                    region: config.region,
+                    accessKeyId: config.credentials.accessKeyId,
+                    secretAccessKey: config.credentials.secretAccessKey,
+            });
+      
+      async function run () {
+        const channelDescription = await kvs.describeSignalingChannel({
+            ChannelName: config['channelName']
+        }).promise();
+
+        config['channelARN'] = channelDescription.ChannelInfo.ChannelARN
+
+        const endpoint = await kvs.getSignalingChannelEndpoint({
+            ChannelARN: config.channelARN,
+            SingleMasterChannelEndpointConfiguration: {
+                Protocols: ['WSS', 'HTTPS'],
+                Role: KVSWebRTC.Role.VIEWER,
+            },
+        }).promise();
+
+        config['channelEndpoint'] = endpoint.ResourceEndpointList[1]['ResourceEndpoint'] ;
+
+        //only use the basic STUN server
+        const iceServers = [
+          { urls: `stun:stun.kinesisvideo.us-east-1.amazonaws.com:443` }
+        ];
+
+        const peerConnection = new RTCPeerConnection({ iceServers });
+        const signalClient = new KVSWebRTC.SignalingClient(config);
+
+        signalClient.on('open', async() => {
+          localStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+          localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
+
+          const offer = await peerConnection.createOffer({
+            offerToReceiveAudio: true,
+            offerToReceiveVideo: true,
+          })
+
+          await peerConnection.setLocalDescription(offer);
+          signalClient.sendSdpOffer(peerConnection.localDescription);
+        });
+
+        signalClient.on('sdpAnswer', async answer => {
+           await peerConnection.setRemoteDescription(answer)
+          });
+
+        signalClient.on('iceCandidate', candidate => {
+          peerConnection.addIceCandidate(candidate);
+        })
+
+        signalClient.on('error', error => {
+          console.log(error);
+        })
+
+        peerConnection.onicecandidate = ({candidate}) => {
+          if (candidate){
+              signalClient.sendIceCandidate(candidate);
+          }
+        }
+        
+        peerConnection.ontrack = e => {
+          document.getElementById('videoplayer').srcObject = event.streams[0];
+        }
+
+        //Open the connection
+        signalClient.open()
+      }
+
+      run()
+    </script>
+  </body>
+</html>
