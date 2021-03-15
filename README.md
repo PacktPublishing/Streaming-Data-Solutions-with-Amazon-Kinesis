@@ -5,7 +5,7 @@
 This is a repository for the book [Scalable Data Streaming with Amazon Kinesis](https://www.amazon.com/gp/product/1800565402) covering: 
 * [Kinesis Data Streams (Chapter 4)](chapter4)
 * [Kinesis Data Firehose (Chapter 5)](chapter5)
-* [Kinesis Data Analytics (Chpater 6)](chapter6)
+* [Kinesis Data Analytics (Chapter 6)](chapter6)
 * [Kinesis Video Streams (Chapter 7)](chapter7)
 * [Integrations (Chapter 8)](chapter8)
 
