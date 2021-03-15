@@ -1,6 +1,6 @@
 # Streaming Data Solutions with Amazon Kinesis Code Examples 
 
-![image](https://user-images.githubusercontent.com/51995/111104487-3a1b0480-8527-11eb-9be7-6e509975e85f.png)
+<img src="https://user-images.githubusercontent.com/51995/111105043-6a16d780-8528-11eb-8a48-2275446b0a94.png" width="400" alt="Streaming Data Solutions with Amazon Kinesis book cover">
 
 This is a repository for the book [Scalable Data Streaming with Amazon Kinesis](https://www.amazon.com/gp/product/1800565402) covering: 
 * [Kinesis Data Streams (Chapter 4)](chapter4)
