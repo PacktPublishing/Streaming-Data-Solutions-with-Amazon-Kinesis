@@ -25,7 +25,7 @@ This is a repository for the book [Scalable Data Streaming with Amazon Kinesis](
 | Multiple consumers | Yes| No| 3 destination per application | Yes – up to 50 | Yes|  Yes | No | No | Yes | No | 
 |Row/object size | 1 MB | Destination row/object size | 512 KB | Configurable | 1 second|  1MB default Configurable | 256 KB | 256 KB | 256 KB | 256 KB |
 
-*Note: AWS is constaintly releasing new services and features and this table may not be accurate.*
+*Note: AWS is constantly releasing new services and features and this table may not be accurate.*
 
 Based on:
 * https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
