@@ -14,7 +14,7 @@ message_json = {
 
 kinesis = boto3.client('kinesis')
 data = json.dumps(message_json)
-partition_key = uuid.uuid4()
+partition_key = str(uuid.uuid4())
 resp = kinesis.put_record(
         StreamName=stream_name,
         Data=data,
