@@ -27,6 +27,7 @@ https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html
 
 ### Commands Used in the Chapter
 
+#### Register Enhanced Fan-Out Consumer
 ```
 aws kinesis register-stream-consumer \
     --stream-arn <your-stream-arn-here>  \
