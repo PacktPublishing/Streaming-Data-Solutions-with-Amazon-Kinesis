@@ -25,4 +25,10 @@ https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html
   * Kinesis Scaling Utility https://github.com/awslabs/amazon-kinesis-scaling-utils  
 
 
+### Commands Used in the Chapter
+
+aws kinesis register-stream-consumer \
+    --stream-arn <your-stream-arn-here>  \
+    --consumer-name KinesisConsumerApplication
+
 ### Known issues
