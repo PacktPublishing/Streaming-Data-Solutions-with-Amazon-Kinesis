@@ -1,4 +1,4 @@
-# Streaming Data Solutions with Amazon Kinesis Code Examples 
+# Streaming Data Solutions with Amazon Kinesis, published by Packt Code Examples 
 
 <img src="https://user-images.githubusercontent.com/51995/111105043-6a16d780-8528-11eb-8a48-2275446b0a94.png" width="400" alt="Streaming Data Solutions with Amazon Kinesis book cover">
 
