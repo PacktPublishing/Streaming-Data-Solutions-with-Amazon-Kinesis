@@ -4,7 +4,7 @@
 
 This is the code repository for [Scalable Data Streaming with Amazon Kinesis](https://www.packtpub.com/product/scalable-data-streaming-with-amazon-kinesis/9781800565401?utm_source=github&utm_medium=repository&utm_campaign=9781800565401), published by Packt.
 
-**Design and secure highly available, cost-effective data streaming applications with Amazon Kinesis	**
+**Design and secure highly available, cost-effective data streaming applications with Amazon Kinesis**
 
 ## What is this book about?
 Amazon Kinesis is a collection of secure, serverless, durable, and highly available purpose-built data streaming services. This data streaming service provides APIs and client SDKs that enable you to produce and consume data at scale.
@@ -103,38 +103,4 @@ is a Principal Developer Advocate with the Amazon Kinesis and the Amazon MSK tea
 
 ### Suggestions and Feedback
 [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
