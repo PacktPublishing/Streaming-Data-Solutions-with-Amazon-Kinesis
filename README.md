@@ -36,7 +36,7 @@ input file://SmartCityGlueTable.json
 **Following is what you need for this book:**
 This book is for solutions architects, developers, system administrators, data engineers, and data scientists looking to evaluate and choose the most performant, secure, scalable, and cost-effective data streaming technology to overcome their data ingestion and processing challenges on AWS. Prior knowledge of cloud architectures on AWS, data streaming technologies, and architectures is expected.	
 
-With the following software and hardware list you can run all code files present in the book (Chapter 1-15).
+With the following software and hardware list you can run all code files present in the book (Chapter 1-12).
 
 ### Software and Hardware List
 
@@ -46,63 +46,6 @@ With the following software and hardware list you can run all code files present
 | 1-12     | AWS Java SDK version 1.11           | Windows, Mac OS X, and Linux (Any  |
 | 1-12     | AWS CLI v2                          | Windows, Mac OS X, and Linux (Any  |
 | 1-12     | Python 3 Interpreter                | Windows, Mac OS X, and Linux (Any  |
-
-
-
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [https://static.packt-cdn.com/downloads/9781800565401_ColorImages.pdf]
-
-
-### Related products <Other books you may enjoy>
-* Mastering Machine Learning on AWS [[Packt]](https://www.packtpub.com/product/mastering-machine-learning-on-aws/9781789349795) [[Amazon]](https://www.amazon.com/dp/1789349796)
-
-* Learn Amazon SageMaker [[Packt]](https://www.packtpub.com/product/learn-amazon-sagemaker/9781800208919) [[Amazon]](https://www.amazon.com/dp/180020891X)
-
-## Get to Know the Authors
-
-**Tarik Makota**
-hails from a small town in Bosnia. He is a Principal Solutions Architect with Amazon WebServices, builder, writer, and the self-proclaimed best fly fisherman at AWS. Never a perfect student, he managed to earn a Master of Science in Software Development and Management from RIT. When he is not “doing the cloud” or writing, Tarik spends most of his time flying fishing to pursue slippery trout. He feeds his addiction by spending summers in Montana. Tarik lives in New Jersey with his family, Mersiha, Hana, and two exceptionally perfect dogs.
-
-**Brian Maguire** 
-is a Solution Architect at Amazon Web Services, where he is focused on helping customers build solutions in the cloud. He is a technologist, writer, teacher, and student who loves learning. Brian lives in New Hope, Pennsylvania, with his family Lorna, Ciara, Chris, and several cats.
-
-**Danny Gagne** 
-is a Solutions Architect at Amazon Web Services. He has extensive experience in the design and implementation of large-scale high-performance analysis systems. He lives in New York City.
-
-**Rajeev Chakrabarti**
-is a Principal Developer Advocate with the Amazon Kinesis and the Amazon MSK team. He has worked for many years in the Big Data and Data Streaming space. Before joining the Amazon Kinesis team, he was a streaming Specialist Solution Architect helping customers build streaming pipelines. He lives in New Jersey with his family, Shaifalee and Anushka.
-
-
-## Other books by the authors
-* [Mastering Linux Network Administration](https://www.packtpub.com/networking-and-servers/mastering-linux-network-administration?utm_source=github&utm_medium=repository&utm_campaign=9781784399597)
-* [Linux Mint Essentials](https://www.packtpub.com/networking-and-servers/linux-mint-essentials?utm_source=github&utm_medium=repository&utm_campaign=9781782168157)
-
-### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img src="https://user-images.githubusercontent.com/51995/111105043-6a16d780-8528-11eb-8a48-2275446b0a94.png" width="400" alt="Streaming Data Solutions with Amazon Kinesis book cover">
 
 This is a repository for the book [Scalable Data Streaming with Amazon Kinesis](https://www.amazon.com/gp/product/1800565402) covering: 
 * [Kinesis Data Streams (Chapter 4)](chapter4)
@@ -134,6 +77,63 @@ Based on:
 * https://docs.aws.amazon.com/general/latest/gr/ka.html
 * https://docs.aws.amazon.com/general/latest/gr/akv.html
 * https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-sdk-limits.html
+
+
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [https://static.packt-cdn.com/downloads/9781800565401_ColorImages.pdf]
+
+
+### Related products <Other books you may enjoy>
+* Mastering Machine Learning on AWS [[Packt]](https://www.packtpub.com/product/mastering-machine-learning-on-aws/9781789349795) [[Amazon]](https://www.amazon.com/dp/1789349796)
+
+* Learn Amazon SageMaker [[Packt]](https://www.packtpub.com/product/learn-amazon-sagemaker/9781800208919) [[Amazon]](https://www.amazon.com/dp/180020891X)
+
+## Get to Know the Authors
+
+**Tarik Makota**
+hails from a small town in Bosnia. He is a Principal Solutions Architect with Amazon WebServices, builder, writer, and the self-proclaimed best fly fisherman at AWS. Never a perfect student, he managed to earn a Master of Science in Software Development and Management from RIT. When he is not “doing the cloud” or writing, Tarik spends most of his time flying fishing to pursue slippery trout. He feeds his addiction by spending summers in Montana. Tarik lives in New Jersey with his family, Mersiha, Hana, and two exceptionally perfect dogs.
+
+**Brian Maguire** 
+is a Solution Architect at Amazon Web Services, where he is focused on helping customers build solutions in the cloud. He is a technologist, writer, teacher, and student who loves learning. Brian lives in New Hope, Pennsylvania, with his family Lorna, Ciara, Chris, and several cats.
+
+**Danny Gagne** 
+is a Solutions Architect at Amazon Web Services. He has extensive experience in the design and implementation of large-scale high-performance analysis systems. He lives in New York City.
+
+**Rajeev Chakrabarti**
+is a Principal Developer Advocate with the Amazon Kinesis and the Amazon MSK team. He has worked for many years in the Big Data and Data Streaming space. Before joining the Amazon Kinesis team, he was a streaming Specialist Solution Architect helping customers build streaming pipelines. He lives in New Jersey with his family, Shaifalee and Anushka.
+
+### Suggestions and Feedback
+[Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
